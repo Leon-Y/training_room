@@ -14,4 +14,16 @@ public class TrainingException extends RuntimeException {
     public TrainingException(String message) {
         super(message);
     }
+
+    public TrainingException(TrainingExceptionEnums trainingExceptionEnums){
+        super(trainingExceptionEnums.getErrorCode()+":"+trainingExceptionEnums.getErrorMessage());
+    }
+
+    public TrainingException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public TrainingException(Throwable cause) {
+        super(cause);
+    }
 }

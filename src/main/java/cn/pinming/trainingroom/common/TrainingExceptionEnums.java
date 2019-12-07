@@ -1,5 +1,7 @@
 package cn.pinming.trainingroom.common;
 
+import lombok.Data;
+
 /**
  * @Author: Administrator
  * @Date: 2019/12/7 :16:59
@@ -36,5 +38,13 @@ public enum TrainingExceptionEnums {
     TrainingExceptionEnums(String errorCode,String errorMessage) {
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 }
