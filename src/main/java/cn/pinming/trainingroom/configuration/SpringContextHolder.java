@@ -1,11 +1,10 @@
-package com.pinming.training_room.configuration;
+package cn.pinming.trainingroom.configuration;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.util.Map;
 
 /**

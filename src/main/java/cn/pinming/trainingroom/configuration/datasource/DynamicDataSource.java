@@ -1,4 +1,4 @@
-package com.pinming.training_room.configuration.datasource;
+package cn.pinming.trainingroom.configuration.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

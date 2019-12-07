@@ -1,4 +1,4 @@
-package com.pinming.training_room;
+package cn.pinming.trainingroom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

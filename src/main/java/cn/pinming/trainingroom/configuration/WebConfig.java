@@ -1,7 +1,5 @@
-package com.pinming.training_room.configuration;
+package cn.pinming.trainingroom.configuration;
 
-import com.pinming.training_room.configuration.properties.DataSourceProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**

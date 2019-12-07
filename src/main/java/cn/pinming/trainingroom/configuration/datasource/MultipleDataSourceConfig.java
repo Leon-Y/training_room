@@ -1,6 +1,6 @@
-package com.pinming.training_room.configuration.datasource;
+package cn.pinming.trainingroom.configuration.datasource;
 
-import com.pinming.training_room.configuration.SpringContextHolder;
+import cn.pinming.trainingroom.configuration.SpringContextHolder;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

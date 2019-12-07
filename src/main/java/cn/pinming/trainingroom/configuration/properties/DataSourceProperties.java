@@ -1,4 +1,4 @@
-package com.pinming.training_room.configuration.properties;
+package cn.pinming.trainingroom.configuration.properties;
 
 /**
  * @Author: Administrator

@@ -1,4 +1,4 @@
-package com.pinming.training_room.configuration.datasource;
+package cn.pinming.trainingroom.configuration.datasource;
 
 /**
  * @Auther: Xiao

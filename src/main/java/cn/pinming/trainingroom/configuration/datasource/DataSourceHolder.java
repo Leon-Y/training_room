@@ -1,8 +1,7 @@
-package com.pinming.training_room.configuration.datasource;
+package cn.pinming.trainingroom.configuration.datasource;
 
-import com.pinming.training_room.configuration.properties.DataSourceProperties;
+import cn.pinming.trainingroom.configuration.properties.DataSourceProperties;
 import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
