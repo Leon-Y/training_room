@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pinming.trainingroom.mapper.TrainingRecordDayMapper" >
+  <resultMap id="BaseResultMap" type="cn.pinming.trainingroom.model.TrainingRecordDay" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="come_in_num" property="comeInNum" jdbcType="INTEGER" />
+    <result column="come_out_num" property="comeOutNum" jdbcType="INTEGER" />
+    <result column="average_time" property="averageTime" jdbcType="VARCHAR" />
+    <result column="statistical_time" property="statisticalTime" jdbcType="TIMESTAMP" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, company_id, project_id, come_in_num, come_out_num, average_time, statistical_time, 
+    gmt_create
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.pinming.trainingroom.model.TrainingRecordDayExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from a_training_record_day
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from a_training_record_day
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from a_training_record_day
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.pinming.trainingroom.model.TrainingRecordDayExample" >
+    delete from a_training_record_day
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.pinming.trainingroom.model.TrainingRecordDay" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into a_training_record_day (id, company_id, project_id, 
+      come_in_num, come_out_num, average_time, 
+      statistical_time, gmt_create)
+    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, 
+      #{comeInNum,jdbcType=INTEGER}, #{comeOutNum,jdbcType=INTEGER}, #{averageTime,jdbcType=VARCHAR}, 
+      #{statisticalTime,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.pinming.trainingroom.model.TrainingRecordDay" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into a_training_record_day
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="comeInNum != null" >
+        come_in_num,
+      </if>
+      <if test="comeOutNum != null" >
+        come_out_num,
+      </if>
+      <if test="averageTime != null" >
+        average_time,
+      </if>
+      <if test="statisticalTime != null" >
+        statistical_time,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="comeInNum != null" >
+        #{comeInNum,jdbcType=INTEGER},
+      </if>
+      <if test="comeOutNum != null" >
+        #{comeOutNum,jdbcType=INTEGER},
+      </if>
+      <if test="averageTime != null" >
+        #{averageTime,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticalTime != null" >
+        #{statisticalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.pinming.trainingroom.model.TrainingRecordDayExample" resultType="java.lang.Integer" >
+    select count(*) from a_training_record_day
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update a_training_record_day
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyId != null" >
+        company_id = #{record.companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectId != null" >
+        project_id = #{record.projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comeInNum != null" >
+        come_in_num = #{record.comeInNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.comeOutNum != null" >
+        come_out_num = #{record.comeOutNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.averageTime != null" >
+        average_time = #{record.averageTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.statisticalTime != null" >
+        statistical_time = #{record.statisticalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update a_training_record_day
+    set id = #{record.id,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=VARCHAR},
+      project_id = #{record.projectId,jdbcType=VARCHAR},
+      come_in_num = #{record.comeInNum,jdbcType=INTEGER},
+      come_out_num = #{record.comeOutNum,jdbcType=INTEGER},
+      average_time = #{record.averageTime,jdbcType=VARCHAR},
+      statistical_time = #{record.statisticalTime,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.pinming.trainingroom.model.TrainingRecordDay" >
+    update a_training_record_day
+    <set >
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="comeInNum != null" >
+        come_in_num = #{comeInNum,jdbcType=INTEGER},
+      </if>
+      <if test="comeOutNum != null" >
+        come_out_num = #{comeOutNum,jdbcType=INTEGER},
+      </if>
+      <if test="averageTime != null" >
+        average_time = #{averageTime,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticalTime != null" >
+        statistical_time = #{statisticalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.pinming.trainingroom.model.TrainingRecordDay" >
+    update a_training_record_day
+    set company_id = #{companyId,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      come_in_num = #{comeInNum,jdbcType=INTEGER},
+      come_out_num = #{comeOutNum,jdbcType=INTEGER},
+      average_time = #{averageTime,jdbcType=VARCHAR},
+      statistical_time = #{statisticalTime,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

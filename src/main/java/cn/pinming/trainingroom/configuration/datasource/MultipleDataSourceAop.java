@@ -1,16 +1,13 @@
 package cn.pinming.trainingroom.configuration.datasource;
 
-import cn.pinming.trainingroom.common.TrainingException;
-import cn.pinming.trainingroom.common.TrainingExceptionEnums;
-import cn.pinming.trainingroom.configuration.SpringContextHolder;
+import cn.pinming.trainingroom.common.exception.TrainingException;
+import cn.pinming.trainingroom.common.exception.TrainingExceptionEnums;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**

@@ -1,6 +1,5 @@
-package cn.pinming.trainingroom.common;
+package cn.pinming.trainingroom.common.exception;
 
-import lombok.Data;
 
 /**
  * @Author: Administrator
